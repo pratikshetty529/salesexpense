@@ -115,7 +115,7 @@ public class PdfToExcel {
 
 		// Let us append given str to above
 		// created file.
-
+		System.out.println(System.getProperty("user.dir"));
 		String txtFileName = System.getProperty("user.dir") + "\\Geek.txt";
 		String excelFileName = System.getProperty("user.dir") + "\\Sample.xlsx";
 
