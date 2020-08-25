@@ -9,7 +9,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import org.springframework.web.multipart.MultipartFile;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -116,12 +115,9 @@ public class PdfToExcel {
 
 		// Let us append given str to above
 		// created file.
-		Path root = Paths.get(".").normalize().toAbsolutePath();
-		String rootPath = root.toString();
-		System.out.print(rootPath);
 
-		String txtFileName = rootPath + "\\Geek.txt";
-		String excelFileName = rootPath + "\\Sample.xlsx";
+		String txtFileName = System.getProperty("user.dir") + "\\Geek.txt";
+		String excelFileName = System.getProperty("user.dir") + "\\Sample.xlsx";
 
 		// Create a Workbook and a sheet in it
 		XSSFWorkbook workbook = new XSSFWorkbook();
@@ -156,7 +152,7 @@ public class PdfToExcel {
 		File tempTxtFile = new File(fileName);
 		tempTxtFile.delete();
 		pd.close();
-		Files.deleteIfExists(Paths.get(rootPath + "\\" + file.getOriginalFilename()));
+		Files.deleteIfExists(Paths.get(System.getProperty("user.dir") + "\\" + file.getOriginalFilename()));
 		String outputFileName = "Sample.xlsx";
 		return outputFileName;
 
