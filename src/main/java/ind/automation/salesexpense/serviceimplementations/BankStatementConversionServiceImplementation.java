@@ -25,7 +25,7 @@ public class BankStatementConversionServiceImplementation implements BankStateme
 	public BankStatementResponseListResponse convertBankStatement(MultipartFile file) throws IOException {
 		PdfToExcel obj = new PdfToExcel();
 		String outputFileName = obj.convertPdfToExcel(file);
-		FileInputStream fis = new FileInputStream(new File(System.getProperty("user.dir") + "\\" + outputFileName));
+		FileInputStream fis = new FileInputStream(new File(System.getProperty("user.dir") + "/" + outputFileName));
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		XSSFSheet worksheet = workbook.getSheetAt(0);
 		DataFormatter formatter = new DataFormatter();

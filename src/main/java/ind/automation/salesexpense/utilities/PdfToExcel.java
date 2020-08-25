@@ -116,8 +116,8 @@ public class PdfToExcel {
 		// Let us append given str to above
 		// created file.
 		System.out.println(System.getProperty("user.dir"));
-		String txtFileName = System.getProperty("user.dir") + "\\Geek.txt";
-		String excelFileName = System.getProperty("user.dir") + "\\Sample.xlsx";
+		String txtFileName = System.getProperty("user.dir") + "/Geek.txt";
+		String excelFileName = System.getProperty("user.dir") + "/Sample.xlsx";
 
 		// Create a Workbook and a sheet in it
 		XSSFWorkbook workbook = new XSSFWorkbook();
@@ -152,7 +152,7 @@ public class PdfToExcel {
 		File tempTxtFile = new File(fileName);
 		tempTxtFile.delete();
 		pd.close();
-		Files.deleteIfExists(Paths.get(System.getProperty("user.dir") + "\\" + file.getOriginalFilename()));
+		Files.deleteIfExists(Paths.get(System.getProperty("user.dir") + "/" + file.getOriginalFilename()));
 		String outputFileName = "Sample.xlsx";
 		return outputFileName;
 
