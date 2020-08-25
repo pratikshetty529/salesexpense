@@ -44,6 +44,9 @@ public class BalanceSheetServiceImplementations implements BalanceSheetService {
 				tempValue = cell.toString();
 			}
 		}
+		Path root = Paths.get(".").normalize().toAbsolutePath();
+		String rootPath = root.toString();
+		System.out.print(rootPath);
 		String outputFileName = "BalanceSheetNew.xlsx";
 		FileOutputStream outputStream = new FileOutputStream(outputFileName);
 		workbook.write(outputStream);
