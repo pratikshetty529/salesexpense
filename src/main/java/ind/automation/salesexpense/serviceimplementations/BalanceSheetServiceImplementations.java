@@ -44,9 +44,6 @@ public class BalanceSheetServiceImplementations implements BalanceSheetService {
 				tempValue = cell.toString();
 			}
 		}
-		Path root = Paths.get(".").normalize().toAbsolutePath();
-		String rootPath = root.toString();
-		System.out.print(rootPath);
 		String outputFileName = "BalanceSheetNew.xlsx";
 		FileOutputStream outputStream = new FileOutputStream(outputFileName);
 		workbook.write(outputStream);
@@ -58,7 +55,7 @@ public class BalanceSheetServiceImplementations implements BalanceSheetService {
 
 	@Override
 	public ArrayList<VendorListResponseBean> createVendorList(String balanceSheetFileName) throws IOException {
-		FileInputStream fis = new FileInputStream(new File(System.getProperty("user.dir") + "\\" + balanceSheetFileName));
+		FileInputStream fis = new FileInputStream(new File(System.getProperty("user.dir") + "/" + balanceSheetFileName));
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		XSSFSheet worksheet = workbook.getSheetAt(0);
 		int lastRow = worksheet.getLastRowNum();
