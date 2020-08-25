@@ -3,8 +3,6 @@ package ind.automation.salesexpense.serviceimplementations;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -27,9 +25,7 @@ public class BankStatementConversionServiceImplementation implements BankStateme
 	public BankStatementResponseListResponse convertBankStatement(MultipartFile file) throws IOException {
 		PdfToExcel obj = new PdfToExcel();
 		String outputFileName = obj.convertPdfToExcel(file);
-		Path root = Paths.get(".").normalize().toAbsolutePath();
-		String rootPath = root.toString();
-		FileInputStream fis = new FileInputStream(new File(rootPath + "\\" + outputFileName));
+		FileInputStream fis = new FileInputStream(new File(System.getProperty("user.dir") + "\\" + outputFileName));
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		XSSFSheet worksheet = workbook.getSheetAt(0);
 		DataFormatter formatter = new DataFormatter();

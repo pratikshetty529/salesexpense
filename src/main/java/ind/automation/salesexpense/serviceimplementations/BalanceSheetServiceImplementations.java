@@ -58,9 +58,7 @@ public class BalanceSheetServiceImplementations implements BalanceSheetService {
 
 	@Override
 	public ArrayList<VendorListResponseBean> createVendorList(String balanceSheetFileName) throws IOException {
-		Path root = Paths.get(".").normalize().toAbsolutePath();
-		String rootPath = root.toString();
-		FileInputStream fis = new FileInputStream(new File(rootPath + "\\" + balanceSheetFileName));
+		FileInputStream fis = new FileInputStream(new File(System.getProperty("user.dir") + "\\" + balanceSheetFileName));
 		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 		XSSFSheet worksheet = workbook.getSheetAt(0);
 		int lastRow = worksheet.getLastRowNum();
