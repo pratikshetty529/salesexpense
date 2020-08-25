@@ -118,6 +118,7 @@ public class PdfToExcel {
 		// created file.
 		Path root = Paths.get(".").normalize().toAbsolutePath();
 		String rootPath = root.toString();
+		System.out.print(rootPath);
 
 		String txtFileName = rootPath + "\\Geek.txt";
 		String excelFileName = rootPath + "\\Sample.xlsx";
