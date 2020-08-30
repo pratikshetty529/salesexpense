@@ -102,13 +102,10 @@ public class BalanceSheetServiceImplementations implements BalanceSheetService {
 			ArrayList<Integer> getindex = new ArrayList<Integer>();
 			for (int i = 8; i < columnSize; i++) {
 				XSSFRow row = worksheet.getRow(i);
-				XSSFCell assetsCell = row.getCell((short) 0);
 				XSSFCell cell = row.getCell((short) 4);
-				if (assetsCell != null && outputList.contains(assetsCell.toString().toLowerCase().replace(" ", ""))) {
-					if (cell != null && cell.toString() != "") {
-						if (vendorNameList.get(j).contains(cell.toString())) {
-							getindex.add(row.getRowNum());
-						}
+				if (cell != null && cell.toString() != "") {
+					if (vendorNameList.get(j).contains(cell.toString())) {
+						getindex.add(row.getRowNum());
 					}
 				}
 			}
@@ -117,13 +114,10 @@ public class BalanceSheetServiceImplementations implements BalanceSheetService {
 			ArrayList<String> uniqueAccountlist = new ArrayList<String>();
 			for (int i : getindex) {
 				XSSFRow row = worksheet.getRow(i);
-				XSSFCell assetsCell = row.getCell((short) 0);
 				XSSFCell cell = row.getCell((short) 6);
-				if (assetsCell != null && outputList.contains(assetsCell.toString().toLowerCase().replace(" ", ""))) {
-					if (cell != null && cell.toString() != "") {
-						if (!uniqueAccountlist.contains(cell.toString())) {
-							uniqueAccountlist.add(cell.toString());
-						}
+				if (cell != null && cell.toString() != "") {
+					if (!uniqueAccountlist.contains(cell.toString())) {
+						uniqueAccountlist.add(cell.toString());
 					}
 				}
 			}
@@ -134,14 +128,10 @@ public class BalanceSheetServiceImplementations implements BalanceSheetService {
 				count = 0;
 				for (int z : getindex) {
 					XSSFRow accountRow = worksheet.getRow(z);
-					XSSFCell assetsCell = accountRow.getCell((short) 0);
 					XSSFCell accountCell = accountRow.getCell((short) 6);
-					if (assetsCell != null
-							&& outputList.contains(assetsCell.toString().toLowerCase().replace(" ", ""))) {
-						if (accountCell != null && accountCell.toString() != "") {
-							if (bean.getAccount().get(k).contains(accountCell.toString())) {
-								count = count + 1;
-							}
+					if (accountCell != null && accountCell.toString() != "") {
+						if (bean.getAccount().get(k).contains(accountCell.toString())) {
+							count = count + 1;
 						}
 					}
 				}
