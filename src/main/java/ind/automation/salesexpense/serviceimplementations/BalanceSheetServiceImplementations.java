@@ -134,7 +134,6 @@ public class BalanceSheetServiceImplementations implements BalanceSheetService {
 				}
 			}
 
-			bean.setName(vendorNameList.get(j));
 			ArrayList<String> uniqueAccountlist = new ArrayList<String>();
 			for (int i : getindex) {
 				XSSFRow row = worksheet.getRow(i);
@@ -149,7 +148,12 @@ public class BalanceSheetServiceImplementations implements BalanceSheetService {
 					}
 				}
 			}
+			if (uniqueAccountlist.isEmpty()) {
+				vendorNameList.remove(j);
+				continue;
+			}
 			bean.setAccount(uniqueAccountlist);
+			bean.setName(vendorNameList.get(j));
 			ArrayList<Integer> accountCount = new ArrayList<Integer>();
 			int count = 0;
 			for (int k = 0; k < bean.getAccount().size(); k++) {

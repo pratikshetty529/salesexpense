@@ -136,7 +136,7 @@ public class DesktopDocumentsServiceImplementation implements DesktopDocumentsSe
 				}
 			}
 
-			bean.setName(vendorNameList.get(j));
+			
 			ArrayList<String> uniqueAccountlist = new ArrayList<String>();
 			for (int i : getindex) {
 				XSSFRow row = worksheet.getRow(i);
@@ -152,6 +152,11 @@ public class DesktopDocumentsServiceImplementation implements DesktopDocumentsSe
 					}
 				}
 			}
+			if (uniqueAccountlist.isEmpty()) {
+				vendorNameList.remove(j);
+				continue;
+			}
+			bean.setName(vendorNameList.get(j));
 			bean.setAccount(uniqueAccountlist);
 			ArrayList<Integer> accountCount = new ArrayList<Integer>();
 			int count = 0;
