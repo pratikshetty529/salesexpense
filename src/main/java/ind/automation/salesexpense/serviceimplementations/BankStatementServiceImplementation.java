@@ -107,8 +107,8 @@ public class BankStatementServiceImplementation implements BankStatementService 
 		});
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 		ArrayList<BankStatementFinalBean> finalBeanList = new ArrayList<BankStatementFinalBean>();
-		BankStatementFinalBean finalBean = new BankStatementFinalBean();
 		for (BankStatementBean b : bankStatementList) {
+			BankStatementFinalBean finalBean = new BankStatementFinalBean();
 			finalBean.setDate(formatter.format(b.getDate()));
 			finalBean.setDescription(b.getDescription());
 			finalBean.setAmount(b.getAmount());
