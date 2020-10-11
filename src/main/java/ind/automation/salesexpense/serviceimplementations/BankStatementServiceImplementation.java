@@ -49,7 +49,7 @@ public class BankStatementServiceImplementation implements BankStatementService 
 			XSSFRow row = worksheet.getRow(i);
 			if (row != null) {
 				XSSFCell cell = row.getCell((short) 0);
-				if (cell.getCellTypeEnum() != CellType.STRING) {
+				if (cell != null && cell.getCellTypeEnum() != CellType.STRING) {
 					if (DateUtil.isCellDateFormatted(cell)) {
 						BankStatementBean bean = new BankStatementBean();
 						LocalDate paymentDateValue = PdfToExcel.convertToLocalDateViaInstant(cell.getDateCellValue());
