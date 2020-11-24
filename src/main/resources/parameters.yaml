@@ -1,0 +1,23 @@
+atm.withdrawal: WITHDRWL
+ignored.words:
+  - for
+  - from
+  - there
+  - their
+  - then
+  - and
+  - then
+  - boston
+  - bar
+  - bost
+  - pot
+  - the
+  - cha
+  - burger
+  - pizza
+account.list:
+  - bank
+  - creditcard
+sales.keywords:
+  - transfer from
+expense.checkcard: CHECKCARD
